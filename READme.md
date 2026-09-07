@@ -31,7 +31,7 @@ The analysis prepares the appointment dataset, investigates attendance and no-sh
 | KPI | Result |
 |---|---:|
 | No-Show Rate | 48.46% |
-| Total Attendance | 5,000 |
+| Total Appointments | 5,000 |
 | Total Cancellation | 263 |
 | Reminder Coverage Rate | 72.68% |
 | Avg Booking lead days | 29.64|
