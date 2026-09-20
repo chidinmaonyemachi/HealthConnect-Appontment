@@ -1,169 +1,267 @@
-# HealthConnect Clinic Experience Lab
+# HealthConnect Clinic Experience Lab — Week 7
 
-## Advanced Analytics & Decision Support — Week 6
+## Advanced Analytics & Decision Support — Data Analytics Track
 
-### Project objective
+### Project Overview
 
-Week 6 builds on the Week 5 exploratory analysis, KPI development and initial dashboard. The focus is on deeper investigation of the strongest findings, KPI validation, analytical decision support, dashboard improvement and cross-track collaboration with the Data Science track.
+This project analyses appointment attendance behaviour for HealthConnect Clinic using 5,000 appointment records covering **1 January 2025 to 30 June 2026**.
 
-### Week 5 → Week 6 transition
+Week 6 focused on advanced segmentation, KPI development and Power BI decision support. Week 7 builds forward from that work by **testing, validating and refining the Week 6 analytical outputs** rather than repeating the original analysis.
 
-Week 5 established the initial analytical baseline for HealthConnect, including data preparation, KPI development, exploratory analysis, dashboard development and business recommendations.
+---
 
-The strongest initial findings were related to previous no-show history, booking lead time, reminder status, distance to clinic and appointment type.
+## Week 7 Objective
 
-Week 6 focuses on investigating these findings more deeply, validating their relevance, examining additional patient and appointment segments, improving the analytical dashboard and providing relevant analytical evidence to the Data Science track.
+The Week 7 objective is to:
 
-### Week 6 analytical focus
+- Validate the Week 6 Power BI KPIs.
+- Test whether important Week 6 findings remain consistent when examined across appointment types.
+- Identify analytical patterns that are not uniform across segments.
+- Refine the interpretation of findings where necessary.
+- Retest validated findings.
+- Document testing evidence and prepare the analysis for Week 8 integration.
 
-The main areas investigated are:
+---
 
-- Previous no-show history
-- Booking lead time
-- Reminder status
-- Distance to clinic
-- Appointment type
-- Age group
+## Week 6 → Week 7 Progression
 
-### Advanced analysis
+**Week 6 Output → Test → Identify Finding → Refine → Retest → Validate → Document → Prepare for Week 8**
 
-#### 1. Previous no-show history
+Week 7 therefore does not rebuild the dashboard or repeat the original exploratory analysis.
 
-Week 5 showed a substantial difference in observed no-show rates between appointments with no previous no-shows and appointments with three or more previous no-shows.
+---
 
-Week 6 investigates this relationship further by examining previous no-show groups and their relationship with other appointment characteristics.
+## Dataset
 
-#### 2. Booking lead time
+| Item | Value |
+|---|---:|
+| Records | 5,000 |
+| Unique appointment IDs | 5,000 |
+| Unique patients | 1,696 |
+| Appointment period | 2025-01-01 to 2026-06-30 |
+| No-Show appointments | 2,423 |
+| Attended appointments | 2,314 |
+| Cancelled appointments | 263 |
 
-Week 5 identified an increase in observed no-show rates across longer booking lead-time bands.
+Patients can have multiple appointments, so appointment records are not fully independent observations.
 
-Week 6 investigates whether this pattern remains when considered alongside other relevant appointment characteristics, particularly previous no-show history.
+---
 
-#### 3. Reminder status
+## Week 7 Testing Completed
 
-Week 5 showed a lower observed no-show rate among appointments where reminders were sent.
+### Test 1 — KPI Validation
 
-Week 6 investigates whether this difference remains consistent across relevant patient and appointment segments.
+The main Power BI KPIs were tested for correct operation.
 
-The relationship is treated as an association and not as evidence of causation.
-
-#### 4. Distance to clinic
-
-Week 5 identified higher observed no-show rates among longer-distance groups.
-
-Week 6 reviews this finding further, particularly considering the relatively small number of appointments in the 30+ km group.
-
-#### 5. Appointment type
-
-Follow-up appointments had the highest observed no-show rate in Week 5.
-
-Week 6 investigates whether this difference remains when considered alongside other relevant appointment characteristics.
-
-#### 6. Age group
-
-Week 6 extends the segmentation analysis by examining no-show rates across age groups.
-
-This analysis is used to determine whether meaningful differences in appointment attendance behaviour exist across patient age segments and whether age group provides additional context for the patterns identified in Week 5.
-
-### KPI validation
-
-The Week 5 KPIs were reviewed and validated for:
+Validated KPI areas:
 
 - Total appointments
 - Total cancellations
 - No-show rate
 - Reminder coverage rate
 - Average booking lead days
+- Appointment outcome totals
 
-The calculation logic and relevant denominators were reviewed to ensure consistency in the Week 6 analysis.
+**Result:** All tested KPIs were working correctly.
 
-### Dashboard improvements
+**Action:** No correction required.
 
-The Week 6 dashboard was enhanced to support deeper analytical investigation and decision-making.
+**Status:** Validated.
 
-New and refined analytical views include:
+---
 
-- No-show rate by previous no-show group
-- No-show rate by booking lead-time band
-- No-show rate by age group
-- No-show rate by appointment type
-- No-show rate by reminder status
-- No-show rate by distance to clinic
-- No-show rate by waiting-time band
-- Comparison of attended, no-show and cancelled appointments
-- Reminder sent versus not sent analysis
+### Test 2 — Reminder Status × Appointment Type
 
-The dashboard moves beyond the initial Week 5 reporting view by providing additional segmentation and deeper analysis of factors associated with appointment no-show behaviour.
+The purpose of this test was to determine whether the Week 6 reminder-status pattern remained consistent across appointment types.
 
-### Key analytical focus
+#### Diagnostic Test
 
-The Week 6 analysis places particular attention on:
+- Total appointments: **593**
+- Reminder sent: **449** — no-show **47.88%**
+- Reminder not sent: **144** — no-show **55.56%**
 
-- Previous no-show history
-- Booking lead time
-- Reminder status
-- Age group
-- Appointment type
-- Distance to clinic
+#### Specialist Consultation
 
-These areas are being investigated to determine which findings have the greatest relevance for HealthConnect decision-making and potential modelling.
+- Total appointments: **900**
+- Reminder sent: **654** — no-show **45.87%**
+- Reminder not sent: **246** — no-show **51.63%**
 
-### Business impact
+#### Follow-up
 
-The Week 6 analysis focuses on identifying findings with the greatest potential operational impact for HealthConnect.
+- Total appointments: **1,421**
+- Reminder sent: **1,037** — no-show **50.53%**
+- Reminder not sent: **384** — no-show **53.13%**
 
-The analysis is intended to support practical decisions around appointment management, reminder processes, patient segmentation and administrative follow-up.
+#### General Consultation
 
-Recommendations are based on observed patterns and are not presented as causal conclusions.
+- Total appointments: **2,086**
+- Reminder sent: **1,494** — no-show **54.65%**
+- Reminder not sent: **592** — no-show **49.16%**
 
-### Cross-track contribution — Data Science
+### Finding
 
-The Data Analytics track collaborated with the Data Science track by providing analytical findings relevant to feature investigation and modelling decisions.
+The reminder relationship was **not consistent across appointment types**.
 
-Key analytical areas shared include:
+For Diagnostic Test, Specialist Consultation and Follow-up, the reminder-sent group had a lower observed no-show rate. For General Consultation, the reminder-sent group had a higher observed no-show rate.
 
-- Previous no-show history
-- Booking lead time
-- Reminder status
-- Appointment type
-- Distance to clinic
-- Age group
+### Refinement
 
-The purpose of the collaboration is to help Data Science evaluate whether analytically relevant variables should be investigated during feature refinement and model development.
+The Week 6 narrative should not describe reminder status as having one uniform relationship with no-shows across all appointment types.
 
-Any modelling use of these variables should also consider whether the information would be available at the intended prediction point.
+The finding remains **associational, not causal**. Reminder status does not confirm delivery, patient engagement or whether the reminder was read.
 
-### Data limitations
+**Status:** Tested — refinement required.
 
-The HealthConnect dataset is fictional/synthetic.
+---
 
-The analysis remains observational and does not establish causality.
+### Test 3 — Appointment Type × Previous No-Show History
 
-Some analytical segments may contain fewer observations than others, which can affect the reliability of comparisons between groups.
+The purpose of this test was to determine whether the Week 6 previous no-show finding remained consistent across appointment types.
 
-The relatively small number of appointments in the 30+ km distance group is an important consideration when interpreting the distance-related finding.
+#### Diagnostic Test
 
-Variables should also be evaluated based on whether they would be available at the intended prediction point before being considered for modelling.
+- Total appointments: **593**
+- Previous no-show 0: **44.67%**
+- Previous no-show 1: **54.64%**
+- Previous no-show 2: **57.38%**
+- Previous no-show 3+: **81.82%**
 
-### Week 7 analytical testing requirements
+#### Specialist Consultation
 
-Week 7 will focus on testing and refining the Week 6 analytical findings.
+- Total appointments: **900**
+- Previous no-show 0: **43.89%**
+- Previous no-show 1: **49.81%**
+- Previous no-show 2: **60.00%**
+- Previous no-show 3+: **65.22%**
 
-Planned areas include:
+#### Follow-up
 
-- Testing the stability of key findings
-- Reviewing unresolved analytical questions
-- Validating integrated analytical and modelling outputs
-- Assessing whether identified analytical features improve model development
-- Refining dashboard insights based on testing results
+- Total appointments: **1,421**
+- Previous no-show 0: **49.29%**
+- Previous no-show 1: **53.56%**
+- Previous no-show 2: **65.19%**
+- Previous no-show 3+: **70.00%**
 
-### Week 6 progression
+#### General Consultation
 
-Week 5:
-Initial EDA → KPI development → Initial dashboard → Business insights
+- Total appointments: **2,086**
+- Previous no-show 0: **40.43%**
+- Previous no-show 1: **54.60%**
+- Previous no-show 2: **55.23%**
+- Previous no-show 3+: **66.67%**
 
-Week 6:
-Deeper analysis → KPI validation → Dashboard improvement → Cross-track integration → Decision support
+### Finding
 
-Week 7:
-Testing → Refinement → End-to-end validation
+The same directional pattern was observed across all four appointment types: higher previous no-show history corresponded with higher observed no-show rates.
+
+### Refinement
+
+No analytical correction was required.
+
+The Week 6 finding on previous no-show history was retained and **validated through segmentation testing**.
+
+**Status:** Validated.
+
+---
+
+## Testing & Validation Matrix
+
+| ID | Component Tested | Testing Objective | Expected Result | Actual Result | Status | Issue / Finding | Action |
+|---|---|---|---|---|---|---|---|
+| T01 | Power BI KPIs | Confirm KPI calculations and operation | KPIs should display correctly | KPIs worked correctly | Pass | No issue identified | No change |
+| T02 | Reminder status × appointment type | Test whether reminder pattern is consistent across appointment types | Similar directional pattern across types | Pattern differed for General Consultation | Finding | Reminder relationship is not uniform | Refined interpretation |
+| T03 | Appointment type × previous no-show history | Test stability of previous no-show finding | Higher previous no-show history should remain associated with higher no-show rates | Pattern observed across all four types | Pass | No issue identified | Retain finding |
+
+---
+
+## Week 7 Findings
+
+### Finding 1 — Previous no-show history remains a stable segmentation signal
+
+The relationship between previous no-show history and current no-show rate remained visible across Diagnostic Test, Specialist Consultation, Follow-up and General Consultation.
+
+This strengthens the Week 6 interpretation that previous no-show history is a useful analytical segmentation variable.
+
+### Finding 2 — Reminder status does not show one uniform pattern across appointment types
+
+The overall Week 6 reminder association does not remain identical within every appointment type.
+
+This means reminder status should be interpreted with appointment context rather than as a universal relationship.
+
+---
+
+## Refinement Made in Week 7
+
+The main analytical refinement is to make the reminder finding more precise.
+
+### Before
+
+Reminder status was described at the overall dataset level as an observed association with no-show behaviour.
+
+### After Week 7 Testing
+
+The analysis now recognises that the observed reminder relationship varies by appointment type. Therefore, reminder status should be treated as a contextual operational signal rather than a uniform pattern across all appointment categories.
+
+No change was required for the previous no-show finding because the pattern remained consistent across appointment types.
+
+---
+
+## Cross-Track Validation
+
+The Week 7 guide requires at least one meaningful cross-track testing or validation activity.
+
+### Planned connection
+
+**Data Analytics → Data Science**
+
+### Dependency
+
+The Data Analytics findings may influence the variables, features or analytical assumptions used by the Data Science track.
+
+### Current status
+
+The analytical tests above have been completed within the Data Analytics work. The cross-track validation activity still needs to be documented after the Data Science testing/validation interaction is completed.
+
+**Important:** A meeting or discussion alone will not be recorded as cross-track validation. The final evidence should show the component tested, finding, action, retest result and what changed.
+
+---
+
+## Limitations
+
+The Week 6 limitations remain relevant:
+
+- The dataset is synthetic.
+- The analysis is observational and does not establish causation.
+- 1,696 patients account for 5,000 appointments, so records are not fully independent.
+- 90 records have missing distance values.
+- 60 records have missing waiting-time values.
+- Reminder sent does not confirm delivery or whether the patient read the reminder.
+- Transport, illness and other reasons for non-attendance are not available.
+- Higher-distance segments have smaller sample sizes.
+
+Week 7 adds an analytical limitation: the reminder relationship varies across appointment types, so overall reminder comparisons should not be interpreted without considering segmentation.
+
+---
+
+## Week 8 Preparation
+
+Before Week 8, the Data Analytics track should:
+
+1. Complete the required cross-track validation with Data Science.
+2. Record the testing evidence and any output received/provided.
+3. Retest any refined cross-track component where applicable.
+4. Update the final Power BI narrative to reflect the Week 7 reminder finding.
+5. Keep previous no-show history as a validated analytical signal.
+6. Maintain the documented limitations and avoid causal claims.
+7. Commit the updated report, README and supporting evidence to GitHub.
+
+---
+
+## Conclusion
+
+Week 7 moved the Data Analytics work from Week 6 analysis into testing and validation.
+
+The Power BI KPIs were validated. Previous no-show history remained consistent across appointment types and was therefore validated as a stable observed pattern. Reminder status required refinement because its observed relationship with no-show behaviour was not consistent across all appointment types.
+
+The main Week 7 improvement is therefore **more precise interpretation**, rather than rebuilding the dashboard or repeating the Week 6 analysis.
+
